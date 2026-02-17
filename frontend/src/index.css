@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background gradient */
+body::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.mainContainer {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(20px);
+  padding: 48px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.mainContainer h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.mainContainer input {
+  padding: 16px 20px;
+  font-size: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(30, 30, 30, 0.6);
+  color: #ffffff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.mainContainer input::placeholder {
+  color: #6b7280;
+}
+
+.mainContainer input:focus {
+  border-color: #6366f1;
+  background: rgba(30, 30, 30, 0.8);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.registerBtn {
+  padding: 18px;
+  font-size: 16px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.registerBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.registerBtn:hover::before {
+  left: 100%;
+}
+
+.registerBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+}
+
+.registerBtn:active {
+  transform: translateY(0);
+}
+
+.registerBtn:disabled {
+  background: rgba(99, 102, 241, 0.3);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.registerBtn:disabled:hover {
+  box-shadow: none;
+}
+
+.mainContainer p {
+  font-size: 14px;
+  text-align: center;
+  color: #9ca3af;
+}
+
+.mainContainer p a {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.mainContainer p a:hover {
+  color: #8b5cf6;
+}
+
+/* Label styling (ako imaš label-e) */
+.mainContainer label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #d1d5db;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+  .mainContainer {
+    padding: 32px 24px;
+    max-width: calc(100% - 32px);
+    border-radius: 20px;
+  }
+
+  .mainContainer h2 {
+    font-size: 24px;
+  }
+
+  .registerBtn {
+    font-size: 15px;
+    padding: 16px;
+  }
+}
