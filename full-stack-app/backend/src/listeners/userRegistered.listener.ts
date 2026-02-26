@@ -10,6 +10,7 @@ export class UserRegisteredListener {
     private readonly queueService: QueueService,
     private readonly kafkaService: KafkaService,
   ) {}
+  
   @OnEvent(events.USER_REGISTERED)
   handleUserRegisteredEvent(data: any) {
     console.log('User Registered Event Received:', data);
